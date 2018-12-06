@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">TQ</string>
+    <string name="button_textInvite">Invite Friends</string>
+    <string name="Name_text">Desmond N.</string>
+    <string name="text_transition">It\'s much easier to win with friends</string>
+    <string name="cont_Desc">Help Button</string>
+    <string name="logo_desc">The TQ logo</string>
+    <string name="more_lives"> + Get More Extra Lives</string>
+    <string name="transition_text">It\'s much easier to win with friends</string>
+    <string name="desc_text">Our biggest week ever. N50k everyday.\nMany winners, #WinningWeek is on.\nCome play for free!
+
+    </string>
+    <string name="text_ExtraLives">Extra Lives
+    </string>
+    <string name="txt_HighestScore">Highest Score </string>
+    <string name="welcome_text">Welcome Back</string>
+    <string name="text_Usrname">Otunba E.</string>
+    <string name="user1price">N994,002</string>
+    <string name="user1_name">Emmanuel</string>
+    <string name="recentWinners">Recent Winners</string>
+    <string name="score">11</string>
+    <string name="extralives_Number">1</string>
+    <string name="edit">edit</string>
+    <string name="user2Name">Tee D.</string>
+    <string name="user2price">N20000</string>
+    <string name="user3name">Otunba E.</string>
+    <string name="user3price">N182,500</string>
+    <string name="user4name">Rosemary</string>
+    <string name="user4price">N180,000</string>
+    <string name="user5name">Jeremiah</string>
+    <string name="user5price">N40,000</string>
+    <string name="more">more</string>
+</resources>
