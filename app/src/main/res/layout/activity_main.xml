@@ -5,14 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/deepSkyeBlue"
-    android:paddingBottom="@dimen/android_LayoutPadding"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -60,511 +67,458 @@
                     android:src="@drawable/ic_action_help" />
             </RelativeLayout>
 
+        </android.support.v7.widget.Toolbar>
+
         <TextView
             android:id="@+id/Toptext"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:paddingTop="10dp"
-            android:requiresFadingEdge="horizontal|vertical"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
             android:text="@string/transition_text"
             android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="normal" />
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
+    </LinearLayout>
 
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/centerScroll"
+    <LinearLayout
+        android:id="@+id/ll_bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:elevation="4dp"
+        app:behavior_peekHeight="390dp"
+        app:behavior_skipCollapsed="true"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-           >
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/main_card"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/card_cornerRadius"
+                app:contentPadding="@dimen/contentPadding">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/welcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="122dp"
+                        android:layout_marginRight="122dp"
+                        android:layout_toStartOf="@+id/userImage"
+                        android:layout_toLeftOf="@+id/userImage"
+                        android:text="@string/welcome_text"
+                        android:textColor="@color/darkGrey"
+                        android:textSize="@dimen/welcomeSize"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/welcome"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginEnd="122dp"
+                        android:layout_marginRight="122dp"
+                        android:layout_toStartOf="@+id/userImage"
+                        android:layout_toLeftOf="@+id/userImage"
+                        android:text="@string/text_Usrname"
+                        android:textColor="@color/deepSkyeBlue"
+                        android:textSize="@dimen/nameSize"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/userImage"
+                        android:layout_width="70dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:contentDescription="@string/cont_Desc"
+                        android:src="@drawable/froyo_circle" />
+
+                    <TextView
+                        android:id="@+id/edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/userImage"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingStart="0dp"
+                        android:paddingLeft="0dp"
+                        android:paddingEnd="25dp"
+                        android:paddingRight="25dp"
+                        android:text="@string/edit"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/smallTalk_size"
+                        android:textStyle="normal" />
+
+
+                    <TextView
+                        android:id="@+id/smalltalk"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/name"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toStartOf="@+id/edit"
+                        android:layout_toLeftOf="@+id/edit"
+                        android:text="@string/desc_text"
+                        android:textColor="@color/darkGrey"
+                        android:textSize="@dimen/smallTalk_size"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:id="@+id/fragments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/smalltalk"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="-1dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="0dp">
+
+                        <TextView
+                            android:layout_width="@dimen/extraLives_Width"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_ExtraLives"
+                            android:textAlignment="center"
+                            android:textColor="@color/darkGrey"
+                            android:textSize="@dimen/highSize"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="@dimen/high_Width"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_HighestScore"
+                            android:textAlignment="center"
+                            android:textColor="@color/darkGrey"
+                            android:textSize="@dimen/highSize"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/extraLives"
+                        android:layout_width="151dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/smalltalk"
+                        android:layout_alignStart="@+id/fragments"
+                        android:layout_alignLeft="@+id/fragments"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="44dp"
+                        android:text="@string/extralives_Number"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/extraLives_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/score"
+                        android:layout_width="151dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fragments"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="44dp"
+                        android:layout_toEndOf="@id/extraLives"
+                        android:layout_toRightOf="@id/extraLives"
+                        android:text="@string/score"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/score_size"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_GetMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="@drawable/getmorelives_btn"
+                android:onClick="moreLives"
+                android:padding="@dimen/btn_padding"
+                android:text="@string/more_lives"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </FrameLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="#FF00FFE4"
+            app:cardCornerRadius="@dimen/card_cornerRadius"
+            app:contentPadding="8dp">
 
             <LinearLayout
-                android:id="@+id/ChildLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/main_card"
+                <TextView
+                    android:id="@+id/recentWinners"
                     android:layout_width="match_parent"
-                    android:layout_height="290dp"
-                    android:layout_gravity="center_horizontal"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/card_cornerRadius"
-                    app:contentPadding="@dimen/contentPadding">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/recentWinners"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/recent_textSize"
+                    android:textStyle="normal" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/welcome"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginEnd="122dp"
-                            android:layout_marginRight="122dp"
-                            android:layout_toStartOf="@+id/userImage"
-                            android:layout_toLeftOf="@+id/userImage"
-                            android:text="@string/welcome_text"
-                            android:textColor="@color/darkGrey"
-                            android:textSize="@dimen/welcomeSize"
-                            android:textStyle="normal" />
-
-                        <TextView
-                            android:id="@+id/name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/welcome"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginEnd="122dp"
-                            android:layout_marginRight="122dp"
-                            android:layout_toStartOf="@+id/userImage"
-                            android:layout_toLeftOf="@+id/userImage"
-                            android:text="@string/text_Usrname"
-                            android:textColor="@color/deepSkyeBlue"
-                            android:textSize="@dimen/nameSize"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/userImage"
-                            android:layout_width="70dp"
-                            android:layout_height="80dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:contentDescription="@string/cont_Desc"
-                            android:src="@drawable/froyo_circle" />
-
-                        <TextView
-                            android:id="@+id/edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/userImage"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:paddingStart="0dp"
-                            android:paddingLeft="0dp"
-                            android:paddingEnd="25dp"
-                            android:paddingRight="25dp"
-                            android:text="@string/edit"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="@dimen/smallTalk_size"
-                            android:textStyle="normal" />
-
-
-                        <TextView
-                            android:id="@+id/smalltalk"
-                            android:layout_width="280dp"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/name"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_toStartOf="@+id/edit"
-                            android:layout_toLeftOf="@+id/edit"
-                            android:text="@string/desc_text"
-                            android:textColor="@color/darkGrey"
-                            android:textSize="@dimen/smallTalk_size"
-                            android:textStyle="normal" />
-
-                        <LinearLayout
-                            android:id="@+id/fragments"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/smalltalk"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="-1dp"
-                            android:gravity="center"
-                            android:orientation="horizontal"
-                            android:paddingTop="15dp"
-                            android:paddingBottom="0dp">
-
-                            <TextView
-                                android:layout_width="@dimen/extraLives_Width"
-                                android:layout_height="wrap_content"
-                                android:text="@string/text_ExtraLives"
-                                android:textAlignment="center"
-                                android:textColor="@color/darkGrey"
-                                android:textSize="@dimen/highSize"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:layout_width="@dimen/high_Width"
-                                android:layout_height="wrap_content"
-                                android:text="@string/txt_HighestScore"
-                                android:textAlignment="center"
-                                android:textColor="@color/darkGrey"
-                                android:textSize="@dimen/highSize"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/extraLives"
-                            android:layout_width="151dp"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/smalltalk"
-                            android:layout_alignStart="@+id/fragments"
-                            android:layout_alignLeft="@+id/fragments"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginTop="40dp"
-                            android:layout_marginBottom="44dp"
-                            android:text="@string/extralives_Number"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="@dimen/extraLives_size"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/score"
-                            android:layout_width="151dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/fragments"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginTop="40dp"
-                            android:layout_marginBottom="44dp"
-                            android:layout_toEndOf="@id/extraLives"
-                            android:layout_toRightOf="@id/extraLives"
-                            android:text="@string/score"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="@dimen/score_size"
-                            android:textStyle="bold" />
-
-
-                    </RelativeLayout>
-
-
-                </android.support.v7.widget.CardView>
-
-                <Button
-                    android:id="@+id/btn_GetMore"
+                <HorizontalScrollView
+                    android:id="@+id/HorinzonScroll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="-35dp"
-                    android:background="@drawable/getmorelives_btn"
-                    android:onClick="moreLives"
-                    android:padding="@dimen/btn_padding"
-                    android:text="@string/more_lives"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white" />
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
 
-                <android.support.v7.widget.CardView
-                    android:id="@+id/secondCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/secondCard_height"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="18dp"
-                    app:cardBackgroundColor="@color/lightBlue"
-                    app:cardCornerRadius="@dimen/card_cornerRadius"
-                    >
-
-                    <HorizontalScrollView
-                        android:id="@+id/HorinzonScroll"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
 
-                        <RelativeLayout
-                            android:id="@+id/layout2"
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            >
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                                <TextView
-                                    android:id="@+id/recentWinners"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/recentWinners"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/recent_textSize"
-                                    android:textStyle="normal"
-                                    android:padding="10dp"/>
-                            </LinearLayout>
-
-
-                            <!-- User 1 -->
                             <ImageView
                                 android:id="@+id/user1"
                                 android:layout_width="@dimen/imageWidth"
                                 android:layout_height="@dimen/imageHeight"
-                                android:layout_toEndOf="@id/user1"
-                                android:layout_toRightOf="@id/user1"
                                 android:contentDescription="@string/cont_Desc"
-                                android:paddingTop="16dp"
-                                android:paddingLeft="16dp"
-                                android:paddingRight="16dp"
-                                android:paddingBottom="5dp"
+                                android:padding="8dp"
                                 android:src="@drawable/froyo_circle" />
 
                             <TextView
-                                android:id="@+id/usr1text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user1"
-                                android:gravity="center"
-                                android:text="@string/user1_name"
+                                android:text="@string/user2Name"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
                             <TextView
-                                android:id="@+id/usr1price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/usr1text"
+                                android:layout_margin="4dp"
                                 android:background="@drawable/greenroundbtn"
-                                android:gravity="center"
-                                android:text="@string/user1price"
+                                android:elevation="4dp"
+                                android:padding="4dp"
+                                android:text="@string/user2price"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
-                            <!-- User 2 -->
+
+                        </LinearLayout>
+
+                        <!-- User 2 -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/user2"
                                 android:layout_width="@dimen/imageWidth"
                                 android:layout_height="@dimen/imageHeight"
-                                android:layout_toEndOf="@id/user1"
-                                android:layout_toRightOf="@id/user1"
                                 android:contentDescription="@string/cont_Desc"
-                                android:paddingTop="16dp"
-                                android:paddingLeft="16dp"
-                                android:paddingRight="16dp"
-                                android:paddingBottom="5dp"
+                                android:padding="8dp"
                                 android:src="@drawable/froyo_circle" />
 
                             <TextView
-                                android:id="@+id/usr2text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user2"
-                                android:gravity="center"
                                 android:text="@string/user2Name"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr1text"
-                                android:layout_toRightOf="@id/usr1text"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
                             <TextView
-                                android:id="@+id/usr2price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/usr2text"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="4dp"
                                 android:background="@drawable/greenroundbtn"
-                                android:gravity="center"
+                                android:elevation="4dp"
+                                android:padding="4dp"
                                 android:text="@string/user2price"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr1price"
-                                android:layout_toRightOf="@id/usr1price"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
-                            <!-- User 3 -->
+                        </LinearLayout>
+                        <!-- User 3 -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/user3"
                                 android:layout_width="@dimen/imageWidth"
                                 android:layout_height="@dimen/imageHeight"
-                                android:layout_toEndOf="@id/user2"
-                                android:layout_toRightOf="@id/user2"
                                 android:contentDescription="@string/cont_Desc"
-                                android:paddingTop="16dp"
-                                android:paddingLeft="16dp"
-                                android:paddingRight="16dp"
-                                android:paddingBottom="5dp"
+                                android:padding="8dp"
                                 android:src="@drawable/froyo_circle" />
 
                             <TextView
-                                android:id="@+id/usr3text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user3"
-                                android:layout_gravity="center_horizontal"
-                                android:gravity="center"
-                                android:text="@string/user3name"
+                                android:text="@string/user2Name"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr2text"
-                                android:layout_toRightOf="@id/usr2text"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
                             <TextView
-                                android:id="@+id/usr3price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/usr3text"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="4dp"
                                 android:background="@drawable/greenroundbtn"
-                                android:gravity="center"
-                                android:text="@string/user3price"
+                                android:elevation="4dp"
+                                android:padding="4dp"
+                                android:text="@string/user2price"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr2price"
-                                android:layout_toRightOf="@id/usr2price"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
-                            <!-- User 4 -->
+                        </LinearLayout>
+                        <!-- User 4 -->
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/user4"
                                 android:layout_width="@dimen/imageWidth"
                                 android:layout_height="@dimen/imageHeight"
-                                android:layout_toEndOf="@id/user3"
-                                android:layout_toRightOf="@id/user3"
                                 android:contentDescription="@string/cont_Desc"
-                                android:paddingTop="16dp"
-                                android:paddingLeft="16dp"
-                                android:paddingRight="16dp"
-                                android:paddingBottom="5dp"
+                                android:padding="8dp"
                                 android:src="@drawable/froyo_circle" />
 
                             <TextView
-                                android:id="@+id/usr4text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user4"
-                                android:layout_gravity="center_horizontal"
-                                android:gravity="center"
-                                android:text="@string/user4name"
+                                android:text="@string/user2Name"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr3text"
-                                android:layout_toRightOf="@id/usr3text"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
                             <TextView
-                                android:id="@+id/usr4price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/usr4text"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="4dp"
                                 android:background="@drawable/greenroundbtn"
-                                android:gravity="center"
-                                android:text="@string/user4price"
+                                android:elevation="4dp"
+                                android:padding="4dp"
+                                android:text="@string/user2price"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr3price"
-                                android:layout_toRightOf="@id/usr3price"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
-                            <!-- User 5 -->
+                        </LinearLayout>
+                        <!-- User 5 -->
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:id="@+id/user5"
                                 android:layout_width="@dimen/imageWidth"
                                 android:layout_height="@dimen/imageHeight"
-                                android:layout_toEndOf="@id/user3"
-                                android:layout_toRightOf="@id/user3"
                                 android:contentDescription="@string/cont_Desc"
-                                android:paddingLeft="16dp"
-                                android:paddingTop="16dp"
-                                android:paddingRight="16dp"
-                                android:paddingBottom="5dp"
+                                android:padding="8dp"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/froyo_circle" />
 
                             <TextView
-                                android:id="@+id/usr5text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/user5"
-                                android:layout_gravity="center_horizontal"
-                                android:gravity="center"
-                                android:text="@string/user5name"
+                                android:text="@string/user2Name"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr4text"
-                                android:layout_toRightOf="@id/usr4text"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
 
                             <TextView
-                                android:id="@+id/usr5price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/usr5text"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="4dp"
                                 android:background="@drawable/greenroundbtn"
-                                android:gravity="center"
-                                android:text="@string/user5price"
+                                android:elevation="2dp"
+                                android:padding="4dp"
+                                android:text="@string/user2price"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/textsize"
-                                android:textStyle="normal"
-                                android:layout_toEndOf="@id/usr4price"
-                                android:layout_toRightOf="@id/usr4price"
-                                android:layout_marginRight="16dp"
-                                android:layout_marginLeft="16dp"/>
+                                android:textSize="@dimen/textsize" />
+                        </LinearLayout>
+                        <!-- <Button
+                             android:id="@+id/btn_more"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="20dp"
+                             android:layout_marginEnd="16dp"
+                             android:layout_marginRight="16dp"
+                             android:layout_toEndOf="@id/user5"
+                             android:layout_toRightOf="@id/user5"
+                             android:background="@drawable/btnmore"
+                             android:onClick="more"
+                             android:text="@string/more"
+                             android:textAllCaps="false"
+                             android:textColor="@color/white" /> -->
 
-                           <!-- <Button
-                                android:id="@+id/btn_more"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginRight="16dp"
-                                android:layout_toEndOf="@id/user5"
-                                android:layout_toRightOf="@id/user5"
-                                android:background="@drawable/btnmore"
-                                android:onClick="more"
-                                android:text="@string/more"
-                                android:textAllCaps="false"
-                                android:textColor="@color/white" /> -->
-
-
-                        </RelativeLayout>
-
-
-                    </HorizontalScrollView>
-
-
-                </android.support.v7.widget.CardView>
-
-
+                    </LinearLayout>
+                </HorizontalScrollView>
             </LinearLayout>
-
-
-        </android.support.v4.widget.NestedScrollView>
-
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
